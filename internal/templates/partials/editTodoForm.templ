@@ -11,7 +11,7 @@ templ EditTodoForm(todo *domain.Todo) {
 		<input type="hidden" name="id" value={ todo.ID.String() } />
 		<form
 			method="POST"
-			action={ "/todos/"+todo.ID.String()+"/edit" }
+			action={ templ.SafeURL("/todos/"+todo.ID.String()+"/edit") }
 			hx-target="closest div"
 			hx-swap="outerHTML"
 			hx-patch={ "/todos/"+todo.ID.String() }
